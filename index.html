@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mahesh Dindur | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content" style="display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <h1>Hi, I'm <span class="highlight">Mahesh Dindur</span></h1>
+        <p>Aspiring Software Developer • Python • Machine Learning </p>
+        <script>
+       //   <p>🎂 Born on 28th July 2003</p>
+      //  <p>📍 Living in: At Post Kotabal Tq Ron, Dist Gadag, 582209</p>
+        </script>
+        
+        <a href="#projects" class="cta-btn">Explore Projects</a>
+      </div>
+      <div>
+        <a href="assets/resume.pdf" target="_blank" class="resume-btn">Check Resume</a>
+      </div>
+  </header>
+
+  <nav class="nav">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#projects">Projects</a>
+    <a href="#hobbies">Hobbies</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about" class="section" data-aos="fade-up" style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+    <div style="flex: 1 1 400px;">
+      <h2>About Me</h2>
+      <p>I’m a recent Computer Science graduate from KLE Technological University, actively seeking opportunities in software development. With hands-on experience in C, C++, Python, SQL, and a growing proficiency in Java, I’ve developed multiple projects that combine practical problem-solving with efficient code design. My interests include machine learning, object-oriented programming, and building intelligent, user-friendly systems. I’m a quick learner, passionate about sharpening my technical skills, and eager to contribute to impactful, real-world software solutions.</p>
+    </div>
+    <div style="flex: 0 0 250px;">
+      <img src="assets/mahesh-photo.png" alt="Mahesh Dindur" class="hero-img" style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);"/>
+    </div>
+  </section>
+
+  <section id="skills" class="section" data-aos="fade-up">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li>C</li>
+      <li>C++</li>
+      <li>Python</li>
+      <li>Java (learning)</li>
+      <li>SQL</li>
+      <li>Machine Learning</li>
+      <li>Object-Oriented Programming</li>
+      <li>Git & GitHub</li>
+      <li>Quick Learning</li>
+      <li>Adaptability</li>
+      <li>Team Worker</li>
+    </ul>
+  </section>
+
+  <section id="education" class="section" data-aos="fade-up">
+    <h2>Education</h2>
+    <div class="edu-item">
+      <h3>KLE Technological University, Belagavi</h3>
+      <p>B.E. in Computer Science Engineering (2021–2025)</p>
+      <p>CGPA: 7.86 </p>
+    </div>
+    <div class="edu-item">
+      <h3>Vagdevi PU Science College, Bagalkot</h3>
+      <p>PUC II Science Graduate (2019–2021) – 100%</p>
+    </div>
+    <div class="edu-item">
+      <h3>New Little Flower High School, Ron</h3>
+      <p>Class X (2019) – 96.8%</p>
+    </div>
+  </section>
+
+  <section id="certifications" class="section" data-aos="fade-up">
+    <h2>Certifications</h2>
+    <ul class="cert-list">
+      <li>
+        Cisco Networking Basics – Cisco Networking Academy
+      <a href="certificate-viewer.html?img=assets/certificates/cisco-certificate.png" class="cert-btn" target="_blank">📄 View Certificate</a>
+      </li>
+      <li>
+        Python Basics – Infosys Springboard
+      <a href="certificate-viewer.html?img=assets/certificates/python-basics.png" class="cert-btn" target="_blank">📄 View Certificate</a>
+      </li>
+      <li>
+        Kubernetes for Developers – Infosys Springboard
+      <a href="certificate-viewer.html?img=assets/certificates/kubernetes.png" class="cert-btn" target="_blank">📄 View Certificate</a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="projects" class="section" data-aos="fade-up">
+    <h2>Projects</h2>
+
+  <!-- Certificate Modal -->
+  <div id="certificateModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close-btn" id="modalCloseBtn">&times;</span>
+      <img id="modalImage" src="" alt="Certificate" />
+    </div>
+  </div>
+
+  <script>
+    // Remove modal related script as modal is no longer used
+  </script>
+
+    <div class="project-card">
+      <h3>Automated Story Generator Using Fine-Tuned LLM</h3>
+      <p>Generates child-friendly stories using a fine-tuned Gemma-3 LLM with the TinyStories dataset. Uses the Gemini API for AI-generated image illustrations.</p>
+      <a href="https://story-ai-eta.vercel.app/" class="demo-btn" target="_blank">🚀 View Demo</a>
+    </div>
+
+    <div class="project-card">
+      <h3>Face Authentication with Liveness Detection</h3>
+      <p>Enhances security in facial authentication systems using OpenCV, Python, and TensorFlow to prevent spoofing attacks.</p>
+    </div>
+
+    <div class="project-card">
+      <h3>Vehicle Number Plate Detection System</h3>
+      <p>Detects and recognizes vehicle number plates using OpenCV and machine learning algorithms.</p>
+    </div>
+
+    <div class="project-card">
+      <h3>Sentiment Analysis on Social Media</h3>
+      <p>Uses Tweepy and TextBlob to extract and classify Twitter sentiments (positive/negative/neutral) via natural language processing.</p>
+    </div>
+
+    <div class="project-card">
+      <h3>Automated Classification of Firearm Cases</h3>
+      <p>ML-based system to classify and categorize firearm forensic cases based on uploaded images.</p>
+    </div>
+
+    <div class="project-card">
+      <h3>Examination Invigilator Allocation System</h3>
+      <p>A MERN stack-based tool designed to assist in managing exam invigilation by helping allocate faculty based on their availability and subject expertise.</p>
+    </div>
+
+    <div class="project-card">
+      <h3>Menstrual Cycle Tracking System</h3>
+      <p>A web-based application designed to help users monitor their menstrual health by tracking cycles, recording symptoms, and generating personalized insights for better planning and awareness.</p>
+    </div>
+  </section>
+
+  <section id="hobbies" class="section" data-aos="fade-up">
+    <h2>Hobbies & Interests</h2>
+    <div class="hobby-list">
+      <div class="hobby-item">🎬 Cinema</div>
+      <div class="hobby-item">🏀 Sports</div>
+      <div class="hobby-item">🌍 Travelling</div>
+      <div class="hobby-item">💻 Coding</div>
+    </div>
+  </section>
+
+  <section id="contact" class="section" data-aos="fade-up">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:maheshdindur9740@gmail.com">maheshdindur9740@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/MaheshDindur" target="_blank">MaheshDindur</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/mahesh-dindur-20725724a/" target="_blank">mahesh-dindur</a></p>
+    <p>Mobile Number: 📞 +91-9740157220</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Mahesh Dindur. All rights reserved.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1000 });</script>
+
+  <script>
+    // Modal elements
+    // Removed modal related script as modal is no longer used
+  </script>
+</body>
+</html>

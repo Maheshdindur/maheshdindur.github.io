@@ -122,40 +122,40 @@
 
     <div class="project-card">
       <h3>Automated Story Generator Using Fine-Tuned LLM</h3>
-      <p>A children’s story generation platform powered by a fine-tuned Gemma-3 Large Language Model, optimized using the TinyStories dataset for age-appropriate storytelling. The backend leverages Hugging Face Transformers and PEFT for efficient fine-tuning and inference. The system accepts custom prompts (title, theme, age group) and outputs multi-page narratives with simple language and child-friendly structure. AI-generated illustrations are created using the Gemini API (multimodal) for image synthesis, enhancing visual engagement</p>
+      <p>This project is an AI-powered storytelling platform that generates child-friendly stories based on user-defined prompts such as theme, title, and target age group. It uses a fine-tuned Gemma 3B large language model, optimized on the TinyStories dataset from Hugging Face. To make training efficient and lightweight, quantization was applied, and the fine-tuning was done using LoRA (Low-Rank Adaptation) through the PEFT library. The system generates 10-page stories, with each page's text sent to the Gemini API to create corresponding illustrations. The frontend was developed using Flutter, enabling a smooth, responsive user interface across platforms. A FastAPI backend connects the story generation and image synthesis services, providing a cohesive and interactive storytelling experience for children</p>
       <a href="https://loquacious-tulumba-a9e271.netlify.app/" class="demo-btn" target="_blank">🚀 View Demo</a>
     </div>
 
     <div class="project-card">
       <h3>Face Authentication with Liveness Detection</h3>
-      <p>A real-time facial authentication system that incorporates liveness detection to thwart spoofing attempts using printed photos or videos. Built with OpenCV for image preprocessing and TensorFlow/Keras for model training and inference. The system integrates both passive (texture/blur detection) and active (blink or head movement) liveness verification techniques. Webcam-based input is processed via HOG (Histogram of Oriented Gradients) and CNN-based classifiers, ensuring secure biometric authentication. Supports both user enrollment and live recognition in real time.</p>
+      <p>This system enhances facial authentication with a built-in liveness detection mechanism to prevent spoofing attacks like photo or video impersonation. It leverages the FaceNet model to extract 128-dimensional face embeddings for identity verification. To ensure the user is live and not a spoofed attempt, a lightweight CNN model based on MobileNet architecture was trained to detect liveness using facial texture and motion patterns. OpenCV handles real-time webcam input, face detection, and image preprocessing. The dual-model system ensures that both identity and liveliness are verified before granting access, making it highly suitable for secure logins, access control, and biometric attendance systems.</p>
       <a href="https://github.com/Maheshdindur/Face-Authentication-using-Face-Liveness-Detection" class="demo-btn" target="_blank">Visit Project</a>
     </div>
 
     <div class="project-card">
       <h3>Vehicle Number Plate Detection System</h3>
-      <p>This project detects vehicle number plates using OpenCV and machine learning algorithms and uses pytesseract for optical character recognition(OCR) which extracts the characters from the number plate image which is detected by trained ML model.</p>
+      <p>This project focuses on the automatic detection and recognition of vehicle number plates using deep learning and OCR. A CNN model was trained using TensorFlow and Keras to detect number plates from vehicle images. Once the plate is detected, OpenCV processes the region of interest to enhance text visibility through techniques like grayscale conversion and thresholding. PyTesseract, an open-source OCR engine, is then used to extract and recognize the alphanumeric characters on the plate. The system is suitable for applications such as automated toll booths, parking management systems, and traffic enforcement.</p>
       <a href="https://github.com/Maheshdindur/Automatic-Number-Plate-Detection" class="demo-btn" target="_blank">Visit Project</a>
     </div>
 
     <div class="project-card">
       <h3>Sentiment Analysis on Social Media</h3>
-      <p>Uses Tweepy and TextBlob to extract and classify Twitter sentiments (positive/negative/neutral) via natural language processing.</p>
+      <p>This NLP-based project analyzes public sentiments on Twitter in real-time. Using the Tweepy library, tweets are collected via Twitter’s API based on selected keywords or hashtags. The text data is cleaned and preprocessed using NLTK and regex to remove noise and standardize formatting. Sentiment classification is performed using TextBlob, which labels each tweet as positive, negative, or neutral. The results are visualized using Streamlit, enabling users to monitor opinion trends and social reactions effectively.</p>
     </div>
 
     <div class="project-card">
       <h3>Automated Classification of Firearm Cases</h3>
-      <p>ML-based system to classify and categorize firearm forensic cases based on uploaded images.</p>
+      <p>This forensic image classification system automates the categorization of firearm-related evidence using machine learning. Uploaded images of bullet cartridge cases are first preprocessed using OpenCV for operations like grayscale conversion and noise reduction. Features are extracted using descriptors like Color-Based Segmentation (Region-Based Features), and then fed into a Support Vector Machine (SVM) classifier implemented via scikit-learn. The model is trained to recognize and classify different types of firearm evidence, helping forensic experts analyze cases more efficiently. Visual tools like confusion matrices and accuracy graphs are included for model evaluation using Matplotlib.</p>
     </div>
 
     <div class="project-card">
       <h3>Examination Invigilator Allocation System</h3>
-      <p>A MERN stack-based tool designed to assist in managing exam invigilation by helping allocate faculty based on their availability and subject expertise.</p>
+      <p>This is a full-stack web application designed to automate the assignment of faculty members for examination invigilation duties. Developed using the MERN stack (MongoDB, Express.js, React.js, and Node.js), the system captures faculty availability and subject expertise to generate optimized invigilation schedules. The backend uses MongoDB aggregation pipelines for data filtering and matching, while authentication and access control are handled using JWT tokens. An admin interface allows real-time updates, manual overrides, and report generation.</p>
     </div>
 
     <div class="project-card">
       <h3>Menstrual Cycle Tracking System</h3>
-      <p>A web-based application designed to help users monitor their menstrual health by tracking cycles, recording symptoms, and generating personalized insights for better planning and awareness.</p>
+      <p>This project is a web-based application designed to help users monitor their menstrual health by tracking cycles, recording symptoms, and generating personalized insights for better planning and awareness. It enables users to log their menstrual cycles, moods, and symptoms to better understand their health patterns and predict future cycles and fertile windows. The frontend is built using React.js, offering a clean and responsive user interface, while the backend is powered by Node.js and Express.js, managing all user data and application logic. Information is securely stored in MongoDB, and user authentication is implemented with bcrypt and JWT, ensuring strong privacy protection. The system uses rule-based logic and calendar algorithms for accurate cycle and fertility predictions.</p>
     </div>
   </section>
 

@@ -306,16 +306,33 @@
       typingIndicator.style.display = 'block';
     } else {
       typingIndicator.style.display = 'none';
-    }
   }
 
-    function addMessage(sender, text) {
-      const messageDiv = document.createElement('div');
-      messageDiv.className = `message ${sender}`;
-      messageDiv.textContent = text;
-      chatbotMessages.appendChild(messageDiv);
+}
+
+function typeText(element, text, speed) {
+  let i = 0;
+  const timer = setInterval(() => {
+    element.textContent += text[i];
+    i++;
+    if (i >= text.length) {
+      clearInterval(timer);
       chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     }
+  }, speed);
+}
+
+function addMessage(sender, text) {
+  const messageDiv = document.createElement('div');
+  messageDiv.className = `message ${sender}`;
+  chatbotMessages.appendChild(messageDiv);
+  if (sender === 'bot') {
+    typeText(messageDiv, text, 20);
+  } else {
+    messageDiv.textContent = text;
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+}
 
     function getBotResponse(message) {
       const lowerMessage = message.toLowerCase();

@@ -228,35 +228,39 @@
     const chatbotSend = document.getElementById('chatbot-send');
     const chatbotMessages = document.getElementById('chatbot-messages');
 
-  // Toggle chatbot window
-  chatbotIcon.addEventListener('click', async () => {
-    chatbotWindow.style.display = chatbotWindow.style.display === 'none' ? 'flex' : 'none';
+    let chatHistory = [];
 
-    // On first open, send "Hi" message to chatbot without showing it to user
-    if (chatbotWindow.style.display === 'flex' && !chatbotWindow.dataset.initialized) {
-      chatbotWindow.dataset.initialized = 'true';
-      showTypingIndicator(true);
-      try {
-        const response = await fetch('https://chatbot-backend-703761824443.asia-south1.run.app/chat', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            message: 'Hi',
-            history: []
-          })
-        });
-        const result = await response.json();
-        const botReply = result.response ? result.response : "Sorry, I didn't get that.";
-        showTypingIndicator(false);
-        addMessage('bot', botReply);
-      } catch (error) {
-        showTypingIndicator(false);
-        addMessage('bot', 'Error: Unable to reach chatbot service.');
-        console.error('Chatbot API error:', error);
-      }
+  // Send initial "Hi" message on page load
+  window.addEventListener('load', async () => {
+    showTypingIndicator(true);
+    try {
+      const response = await fetch('https://chatbot-backend-703761824443.asia-south1.run.app/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: 'Hi',
+          history: []
+        })
+      });
+      const result = await response.json();
+      const botReply = result.response ? result.response : "Sorry, I didn't get that.";
+      showTypingIndicator(false);
+      addMessage('bot', botReply);
+      chatHistory.push({ role: "user", content: "Hi" });
+      chatHistory.push({ role: "assistant", content: botReply });
+    } catch (error) {
+      showTypingIndicator(false);
+      addMessage('bot', 'Error: Unable to reach chatbot service.');
+      console.error('Chatbot API error:', error);
     }
+    chatbotWindow.dataset.initialized = 'true';
+  });
+
+  // Toggle chatbot window
+  chatbotIcon.addEventListener('click', () => {
+    chatbotWindow.style.display = chatbotWindow.style.display === 'none' ? 'flex' : 'none';
   });
 
   // Close chatbot window
@@ -276,22 +280,33 @@
       addMessage('user', message);
       chatbotInput.value = '';
       showTypingIndicator(true);
+
+      // Prepare the messages array to send to the backend
+      const messagesToSend = [...chatHistory, { role: "user", content: message }];
+
       try {
         const response = await fetch('https://chatbot-backend-703761824443.asia-south1.run.app/chat', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
+          // IMPORTANT: Send the full chat history
           body: JSON.stringify({
             message: message,
-            history: []
+            history: chatHistory
           })
         });
+
         const result = await response.json();
-        // Assuming the response format contains result.response as the bot reply
         const botReply = result.response ? result.response : "Sorry, I didn't get that.";
+
+        // Add the user message and bot reply to the history
+        chatHistory.push({ role: "user", content: message });
+        chatHistory.push({ role: "assistant", content: botReply });
+
         showTypingIndicator(false);
         addMessage('bot', botReply);
+
       } catch (error) {
         showTypingIndicator(false);
         addMessage('bot', 'Error: Unable to reach chatbot service.');

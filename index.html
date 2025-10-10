@@ -250,6 +250,7 @@
       addMessage('bot', botReply);
       chatHistory.push({ role: "user", content: "Hi" });
       chatHistory.push({ role: "assistant", content: botReply });
+      chatbotWindow.style.display = 'flex';
     } catch (error) {
       showTypingIndicator(false);
       addMessage('bot', 'Error: Unable to reach chatbot service.');

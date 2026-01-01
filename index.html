@@ -35,6 +35,8 @@
     <a href="#projects">Projects</a>
     <a href="#hobbies">Hobbies</a>
     <a href="#contact">Contact</a>
+    
+    <button id="theme-toggle-btn" aria-label="Toggle Dark/Light Mode"></button>
   </nav>
 
   <section id="about" class="section" data-aos="fade-up" style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
@@ -50,16 +52,25 @@
   <section id="skills" class="section" data-aos="fade-up">
     <h2>Skills</h2>
     <ul class="skills-list">
-      <li>C</li>
-      <li>C++</li>
       <li>Python</li>
-      <li>Java (learning)</li>
+      <li>C++</li>
+      <li>C</li>
       <li>SQL</li>
-      <li>Machine Learning</li>
-      <li>Object-Oriented Programming</li>
       <li>Git & GitHub</li>
+      <li>Object-Oriented Programming</li>
+      <li>Java (learning)</li>
+
+      <li>TensorFlow</li>
+      <li>PyTorch</li>
+      <li>OpenCV</li>
+      <li>Hugging Face</li>
+      <li>RAG</li>
+      <li>CrewAI</li>
+      <li>LangGraph</li>
+      <li>Generative AI</li>
+      
+      
       <li>Quick Learning</li>
-      <li>Adaptability</li>
       <li>Team Worker</li>
     </ul>
   </section>
@@ -84,37 +95,48 @@
   <section id="certifications" class="section" data-aos="fade-up">
     <h2>Certifications</h2>
     <div class="cert-container">
+      
+      <div class="cert-box">
+        <a href="certificate-viewer.html?img=assets/certificates/ai-agent-mcp.png" target="_blank">
+          <img src="assets/certificates/ai-agent-mcp.png" alt="AI Engineer Agentic Track" class="cert-preview" />
+          <div class="cert-name">AI Engineer Agentic Track: The Complete Agent & MCP Course – Udemy</div>
+        </a>
+      </div>
+
       <div class="cert-box">
         <a href="certificate-viewer.html?img=assets/certificates/cisco-certificate.png" target="_blank">
           <img src="assets/certificates/cisco-certificate.png" alt="Cisco Networking Basics" class="cert-preview" />
           <div class="cert-name">Cisco Networking Basics – Cisco Networking Academy</div>
         </a>
       </div>
+
       <div class="cert-box">
         <a href="certificate-viewer.html?img=assets/certificates/python-basics.png" target="_blank">
           <img src="assets/certificates/python-basics.png" alt="Python Basics" class="cert-preview" />
           <div class="cert-name">Python Basics – Infosys Springboard</div>
         </a>
       </div>
+
       <div class="cert-box">
         <a href="certificate-viewer.html?img=assets/certificates/kubernetes.png" target="_blank">
           <img src="assets/certificates/kubernetes.png" alt="Kubernetes for Developers" class="cert-preview" />
           <div class="cert-name">Kubernetes for Developers – Infosys Springboard</div>
         </a>
       </div>
-       <div class="cert-box">
+      
+      <div class="cert-box">
         <a href="certificate-viewer.html?img=assets/certificates/Agentic Ai 1.png" target="_blank">
           <img src="assets/certificates/Agentic Ai 1.png" alt="Agentic AI Certificate" class="cert-preview" />
           <div class="cert-name">AI Automation: Build LLM Apps & AI-Agents with n8n & APIs – Udemy</div>
         </a>
       </div>
+
     </div>
   </section>
 
   <section id="projects" class="section" data-aos="fade-up">
     <h2>Projects</h2>
 
-  <!-- Certificate Modal -->
   <div id="certificateModal" class="modal" style="display:none;">
     <div class="modal-content">
       <span class="close-btn" id="modalCloseBtn">&times;</span>
@@ -125,6 +147,32 @@
   <script>
     // Remove modal related script as modal is no longer used
   </script>
+
+    <div class="project-card" style="border-left: 4px solid #28a745;">
+      <h3>
+        <span style="font-size: 0.8em; background: #28a745; color: white; padding: 2px 8px; border-radius: 4px; vertical-align: middle; margin-right: 8px;">Open Source</span>
+        CareerWise Gemini Notify Module
+      </h3>
+      <p>
+        Contributed to <strong>Ed Donner’s Agentic AI Repository</strong> (used by 250k+ students). 
+        I engineered a production-ready AI chatbot microservice that was merged into the official repository. 
+        My work included developing an API-first backend using FastAPI for personalized career discussions and automatic recruiter contact extraction. 
+        I also implemented a zero-cost notification system using ntfy for real-time alerts and containerized the app for serverless deployment on GCP Cloud Run.
+      </p>
+      <p><strong>Tech Stack:</strong> Python, Gemini API, ntfy, Cloud Run, FastAPI</p>
+      <a href="https://github.com/ed-donner/agents/pull/485#event-21404989304" class="demo-btn" target="_blank" style="background-color: #28a745; color: white;">View Contribution</a>
+    </div>
+
+    <div class="project-card">
+      <h3>Argus: The Serverless Code Guardian</h3>
+      <p>
+        Argus is a serverless AI security bot integrated into GitHub Actions that automatically audits Pull Requests for vulnerabilities (like hardcoded secrets) and logic bugs using <strong>Gemini 2.5 Flash</strong>. 
+        It features a "Gatekeeper" system that autonomously blocks PR merges if critical issues are detected, enforcing code quality standards without human intervention.
+        The system is optimized for zero-maintenance deployment by leveraging ephemeral runners.
+      </p>
+      <p><strong>Tech Stack:</strong> Python, GitHub Actions, Gemini 2.5</p>
+      <a href="https://github.com/Maheshdindur/Argus-The-Serverless-Code-Guardian" class="demo-btn" target="_blank">🚀 View Project</a>
+    </div>
 
     <div class="project-card">
       <h3>Automated Story Generator Using Fine-Tuned LLM</h3>
@@ -195,7 +243,6 @@
     // Removed modal related script as modal is no longer used
   </script>
 
-  <!-- Chatbot HTML -->
   <div id="chatbot-icon" class="chatbot-icon">
     💬
   </div>
@@ -363,5 +410,35 @@ function addMessage(sender, text) {
       }
     }
   </script>
+
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle-btn');
+    const body = document.body;
+
+    // Check for saved user preference
+    const currentTheme = localStorage.getItem('theme');
+    
+    // Logic: If theme is NOT set, or set to 'dark', keep dark mode. 
+    // Only if set to 'light' do we add the class.
+    if (currentTheme === 'light') {
+      body.classList.add('light-mode');
+    } else {
+      // Ensure we are in dark mode (default) by removing the class
+      body.classList.remove('light-mode');
+      localStorage.setItem('theme', 'dark'); // Set default explicitly
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('light-mode');
+      
+      // Save preference
+      if (body.classList.contains('light-mode')) {
+        localStorage.setItem('theme', 'light');
+      } else {
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+
 </body>
 </html>
